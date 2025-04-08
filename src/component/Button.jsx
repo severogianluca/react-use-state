@@ -15,7 +15,9 @@ function Button() {
             <h2>
                 {event ? event.title: ''}
             </h2>
-
+            <p>
+                {event ? event.description: ''}
+            </p>
         </div>
 
         
