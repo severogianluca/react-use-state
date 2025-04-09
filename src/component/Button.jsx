@@ -1,26 +1,26 @@
 import { useState } from "react";
+import Card from "./Card";
 import languages from "../data/languages";
+
 
 function Button() {
 
-    let[event, setEvent] = useState(null)
-    {console.log(event)}
+    let [event, setEvent] = useState(null)
     return (
         <div>
-            {languages.map(element =>(
-            <button onClick={() => setEvent(element)} 
-            type="button" className="btn btn-primary" key={element.id}>{element.title}</button>
+            <div className="container d-flex justify-content-evenly">
+                {languages.map(element => (
+                    <button onClick={() => setEvent(element)} 
+                    type="button" className={'btn ' + (event?.id === element.id ? 'btn-warning' : 'btn-primary')}
+                    key={element.id}>{element.title}</button>
+                        
 
-            ))}
-            <h2>
-                {event ? event.title: ''}
-            </h2>
-            <p>
-                {event ? event.description: ''}
-            </p>
+                ))}
+            </div>
+            <Card event={event} />
         </div>
 
-        
+
     );
 }
 
